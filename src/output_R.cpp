@@ -7,6 +7,7 @@
 //
 
 #include "output_R.hpp"
+#include <math.h>
 
 // Enregistrer EtudeTaille_sortie
 void Enregistrer(vector<vector<double> > & EtudeTaille_sortie) {

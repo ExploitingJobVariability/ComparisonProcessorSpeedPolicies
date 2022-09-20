@@ -4,6 +4,8 @@
 //  Created by Stéphan Arthur Plassart on 20.06.22.
 //
 #include "CoarseFineEquivalent.hpp"
+#include <algorithm>
+#include <math.h>
 
 // Function 1: list detat = (ei,di) -> (eiReduced,di)
 int TransformListToListReduced(vector<vector<int> > & etat_suivant_VRAI,vector<vector<int> > & etat_suivant_REDUCED, vector<double> Available_speeds) {
