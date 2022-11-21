@@ -17,7 +17,7 @@
 #include <iomanip>
 using namespace std;
 
-bool ceilMode = true, floorMode = false, midMode = false;
+bool ceilMode = false, floorMode = false, midMode = true;
 
 /*** BUT    : A partir de la liste des jobs determine letat suivant                                                                  ***/
 /*** ENTREE : liste des jobs (ci,di), liste des jobs arrives en t (ci^t,di^t), l'indice de l'etat courant (ei,di) et l'espace d'état ***/
@@ -186,7 +186,7 @@ int Calcul_fonction_repartition_Lorch(vector<double> & size_proba, int deadline_
     for (int i=0; i<Repartition_droite.size(); i++) {
         // Ajout de chaque portion de droite
         ai = Repartition_droite[i][1];
-        bi = Repartition_droite[i][2];
+        bi = min((double)1,Repartition_droite[i][2]);
         deb = Repartition_droite[i][0];
         fin = deb + 1;
         // En fonction de la valeur de la pente
