@@ -206,8 +206,7 @@ int Simulation_Sec64_ImpactSize(vector<vector<double> > & ens_possible_proba_IAT
 
 // Simulation Tabular Section 6.4
 int Simulation_Sec65_Video(vector<vector<double> > & ens_possible_proba_IAT, vector<vector<double> > & ens_possible_proba_deadline, vector<vector<double> > & ens_possible_proba_size, int & maxReduceSize, bool JobIsole) {
-    vector<double> vector_proba_courant_size {0, 0.000000000,0.000000000, 0.000000000, 0.000000000, 0.000000000, 0.000000000, 0.000000000, 0.000000000, 0.000000000, 0.000000000, 0.000000000, 0.000000000, 0.000000000, 0.000000000, 0.000000000, 0.000000000, 0.000000000, 0.000000000, 0.000000000, 0.000000000, 0.000000000, 0.000000000, 0.000000000, 0.001998002, 0.097902098, 0.225774226, 0.193806194, 0.112887113, 0.045954046, 0.024975025, 0.015984016, 0.027972028, 0.009990010, 0.019980020, 0.015984016, 0.015984016, 0.020979021, 0.011988012, 0.011988012, 0.008991009, 0.016983017,0.013986014, 0.009990010, 0.010989011, 0.007992008, 0.007992008, 0.007992008, 0.008991009, 0.005994006, 0.000999001, 0.003996004, 0.003996004, 0.001998002,0.002997003, 0.002997003, 0.001998002, 0.007992008, 0.002997003, 0.000000000, 0.000999001, 0.002997003 ,0.000000000, 0.000999001, 0.000000000, 0.001998002,0.000999001 ,0.000999001 ,0.000999001 ,0.000000000 ,0.000000000 ,0.000000000, 0.000000000, 0.000000000, 0.000000000, 0.000000000, 0.000000000, 0.000000000,0.000000000 ,0.000000000 ,0.000000000 ,0.000000000 ,0.000999001 ,0.000999001, 0.000999001, 0.000999001, 0.000000000, 0.000000000 ,0.000000000 ,0.000000000,0.000000000 ,0.000000000 ,0.000000000 ,0.000000000 ,0.000000000 ,0.000000000,0.000000000, 0.000000000, 0.000000000, 0.000000000 ,0.000000000 ,0.000999001,0.000000000 ,0.000000000 ,0.000000000 ,0.000000000 ,0.000000000 ,0.000000000, 0.000000000, 0.000000000, 0.000000000, 0.000000000 ,0.000000000 ,0.000999001,0.000000000};
-    ens_possible_proba_size.push_back(vector_proba_courant_size);
+    vector<double> vector_proba_courant_size { 0,0,0,0,0.678321679,0.114885115,0.086913087,0.058941059,0.025974026,0.018981019,0.006993007,0.002997003,0,0.001998002,0.001998002,0,0.000999001,0,0.000999001};
 
     vector<double> vector_proba_courant_deadline = {(double)0,(double)0,(double)1};
     ens_possible_proba_deadline.push_back(vector_proba_courant_deadline);
@@ -220,7 +219,7 @@ int Simulation_Sec65_Video(vector<vector<double> > & ens_possible_proba_IAT, vec
         vector<double> vector_proba_courant_IAT = {(double)0,(double)1};
         ens_possible_proba_IAT.push_back(vector_proba_courant_IAT);
     }
-    maxReduceSize = 10;
+    // maxReduceSize = 10;
     return 0;
 }
 
@@ -345,7 +344,7 @@ int SimulationParameter(vector<vector<double> > & ens_possible_proba_IAT,vector<
         Simulation_Sec64_ImpactSize(ens_possible_proba_IAT,ens_possible_proba_deadline,ens_possible_proba_size,JobIsole);
     }
     if (Section65_Video) {
-        bool JobIsole = false;
+        bool JobIsole = true;
         Simulation_Sec65_Video(ens_possible_proba_IAT,ens_possible_proba_deadline,ens_possible_proba_size,Reduce_maxSize,JobIsole);
     }
     if (CasSpec) {
