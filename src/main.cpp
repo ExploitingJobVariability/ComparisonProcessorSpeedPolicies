@@ -26,13 +26,13 @@
         srand(0);
 
         /*** PARAMETRES ***/
-        int max_buffer= 3;  // 4, 3                        // nombre de job maximal
+        int max_buffer= 4;  // 4, 3                        // nombre de job maximal
         int max_inter_arrival_time = 1;         // Nombre d'inter-arrival-time maximal
         int max_size=4; //10 115                            // Taille max du job
         int max_deadline=3;                         // Deadline maximale
         int typeloi_uniforme = 1;               // Choix de la loi pour la taille 1=> loi discrete
         
-        bool not_reducecase = false; // option not used
+        bool not_reducecase = true; // option not used
         
         vector<double> Reduced_sizeproba;
         int Reduce_maxSize = max_size;
