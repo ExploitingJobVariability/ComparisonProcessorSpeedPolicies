@@ -26,11 +26,13 @@
         srand(0);
 
         /*** PARAMETRES ***/
-        int max_buffer= 4;  // 3                        // nombre de job maximal
+        int max_buffer= 3;  // 4, 3                        // nombre de job maximal
         int max_inter_arrival_time = 1;         // Nombre d'inter-arrival-time maximal
         int max_size=4; //10 115                            // Taille max du job
         int max_deadline=3;                         // Deadline maximale
         int typeloi_uniforme = 1;               // Choix de la loi pour la taille 1=> loi discrete
+        
+        bool not_reducecase = false; // option not used
         
         vector<double> Reduced_sizeproba;
         int Reduce_maxSize = max_size;
@@ -74,19 +76,27 @@
                     size_proba=ens_possible_proba_size[configSize];
                     deadline_proba=ens_possible_proba_deadline[configDeadline];
                     inter_arrival_time_proba=ens_possible_proba_IAT[configIAT];
-                    bool notreducecase = false, enterloop = true;
-                    if (notreducecase) {
+                    bool enterloop = true;
+                    if (not_reducecase) {
                         Reduced_sizeproba = size_proba;
+                        Reduced_deadline = deadline_proba;
+                        Reduced_IAT = inter_arrival_time_proba;
                         if (size_proba[3] == 0)
                             enterloop = false;
                     }
                     cout << "\n===> Simu" << endl;
                     cout << "Iter n° " << configSize << "/" << ens_possible_proba_size.size() << endl;
                     cout << "Size distribution: " << size_proba << " < " << max_size <<  endl;
-                    cout << "Reduced size distribution: " << Reduced_sizeproba << " < " << Reduce_maxSize <<  endl;
+                    cout << "Size distribution: " << Reduced_sizeproba << " < " << Reduce_maxSize <<  endl;
                     cout << "Deadline distribution: " << deadline_proba << " < " << max_deadline <<  endl;
                     cout << "Inter-arrival time distribution: " << inter_arrival_time_proba << " < " << max_inter_arrival_time << endl;
                     cout << "Max Buffer size: " << max_buffer << endl; cout << endl;
+
+                    if ((max_inter_arrival_time!=((int)(inter_arrival_time_proba.size())-1)) || (max_size!=(int)(size_proba.size())) || (max_deadline!=(int)(deadline_proba.size())) || (Reduce_maxSize!=(int)Reduced_sizeproba.size())) {
+                        cout << "ERROR ON THE VECTOR SIZE" << endl;
+                        return 1;
+                    }
+
                     if (enterloop) {
                         vector<double> Speeds_min_VI((int)state_space.size(),0), Nrj_min_VI((int)state_space.size(),0),TempsVI;
                         if (ComputeMDP) {
