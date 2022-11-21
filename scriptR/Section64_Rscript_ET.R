@@ -1,10 +1,10 @@
 ######################################################################
 # @TODO modify this parameter to change the version of the graph
 ######################################################################
-fig6a_OAvsMDP<-FALSE
+fig6a_OAvsMDP<-TRUE
 fig6b_PACEvsMDP<-FALSE
 fig6c_HEURvsMDP<-FALSE
-fig6d_OAvsHEUR<-TRUE
+fig6d_OAvsHEUR<-FALSE
 ######################################################################
 ######################################################################
 
