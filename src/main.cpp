@@ -79,8 +79,8 @@
                     bool enterloop = true;
                     if (not_reducecase) {
                         Reduced_sizeproba = size_proba;
-                        Reduced_deadline = deadline_proba;
-                        Reduced_IAT = inter_arrival_time_proba;
+                        //Reduced_deadline = deadline_proba;
+                        //Reduced_IAT = inter_arrival_time_proba;
                         if (size_proba[3] == 0)
                             enterloop = false;
                     }
